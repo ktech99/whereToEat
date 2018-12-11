@@ -10,7 +10,8 @@ class App extends Component {
                     <div className='seal'/>
                 </div>
                 <div className={"buttons"}>
-                    <p className={"summaryPara"}>Welcome to where to eat!
+                    <h1>Welcome to where to eat!</h1>
+                    <p className={"summaryPara"}>
                         <br/>
                         Our aim is to simplify the decision for you and your
                         friends as to where to eat.
@@ -20,13 +21,30 @@ class App extends Component {
                         <br/>
                         from your friend, go ahead and enter that!
                     </p>
-                    <button className={"button-submit"}>Create Form</button>
+                    <button id="createButton" className={"button-submit"}>Create
+                        Form
+                    </button>
                     <br/>
-                    <button className={"button-submit"}>Enter code</button>
+                    <button className={"button-submit"} onClick={test}>Enter
+                        code
+                    </button>
 
                 </div>
             </div>
         );
+
+        function test() {
+            var create = document.getElementById("createButton");
+            // create.classList.remove("button-submit");
+            create.innerText = "";
+            create.classList.add("change");
+            //TODO: Make into text box with button
+            //add delay to changing classes
+            setTimeout(function () {
+                create.classList.add("change2");
+            }, (2 * 1000));
+
+        }
     }
 }
 

@@ -69,8 +69,8 @@
   font-weight: bold;
   cursor: pointer;
   transition: all 0.25s ease;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 25px;
+  margin-right: 25px;
   margin-top: 50px;
   variant :outlined;
   -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
@@ -116,6 +116,17 @@
   text-align: center;
 
 }
+
+/*Test for button change*/
+.change {
+  width : 0px;
+  transition: width 0.5s ease-out;
+}
+.change2 {
+  width : 200px;
+  transition: width 0.5s ease-out;
+}
+/*end test for button change*/
 
 .summaryPara{
   font-size: 20px;
