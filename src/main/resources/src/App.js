@@ -8,12 +8,22 @@ class App extends Component {
                 <div className='navbar'>
                     <div className='logo'>Where to Eat ?</div>
                     <div className='seal'/>
-                    <div className={"buttons"}>
-                        <button className={"button-submit"}>Create Form</button>
+                </div>
+                <div className={"buttons"}>
+                    <p className={"summaryPara"}>Welcome to where to eat!
                         <br/>
-                        <button className={"button-submit"}>Enter code</button>
+                        Our aim is to simplify the decision for you and your
+                        friends as to where to eat.
+                        <br/>
+                        To get started, create a form for your friends, or
+                        if you have recieved a code
+                        <br/>
+                        from your friend, go ahead and enter that!
+                    </p>
+                    <button className={"button-submit"}>Create Form</button>
+                    <br/>
+                    <button className={"button-submit"}>Enter code</button>
 
-                    </div>
                 </div>
             </div>
         );
