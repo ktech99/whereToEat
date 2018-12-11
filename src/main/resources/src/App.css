@@ -22,11 +22,91 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/*NavBar start*/
+
+.navbar {
+  color: white;
+  background-color: #00075c;
+  border-color: #366769;
+  /*background-image: linear-gradient(#00abab, #0075cd);*/
+  position: relative;
+  height: 100px;
+}
+.navbar .seal {
+  border-top: 30px solid #00075c;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  height: 0;
+  width: 200px;
+  position: relative;
+  z-index: -1;
+  left: 50%;
+  bottom: -20px;
+  margin-left: -110px;
+  top: 30px;
+}
+
+.logo{
+  text-align: center;
+  font-size: 50px;
+}
+
+/*Navbar end*/
+
+/*Button start*/
+.button-submit {
+  outline: none;
+  height: 70px;
+  text-align: center;
+  width: 240px;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #1ECD97;
+  color: #1ECD97;
+  letter-spacing: 1px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  variant :outlined;
+}
+.button-submit:hover {
+  color: white;
+  background: #1ECD97;
+}
+.button-submit:active {
+  letter-spacing: 2px;
+}
+
+.onclic {
+  width: 40px;
+  border-color: #bbbbbb;
+  border-width: 3px;
+  font-size: 0;
+  border-left-color: #1ECD97;
+  -webkit-animation: rotating 2s 0.25s linear infinite;
+  animation: rotating 2s 0.25s linear infinite;
+}
+.onclic:after {
+  content: "";
+}
+.onclic:hover {
+  color: #1ECD97;
+  background: white;
+}
+
+.validate {
+  font-size: 13px;
+  color: white;
+  background: #1ECD97;
+}
+/*Button end*/
+
+.buttons{
+  padding-top: 230px;
+  text-align: center;
 }
