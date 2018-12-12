@@ -21,11 +21,12 @@ class App extends Component {
                         <br/>
                         from your friend, go ahead and enter that!
                     </p>
-                    <button id="createButton" className={"button-submit"}>Create
-                        Form
-                    </button>
+                    <form>
+                    <input id="createButton" className={"button-submit"} type="submit" value="Create a Form"/>
+
+                    </form>
                     <br/>
-                    <button className={"button-submit"} onClick={test}>Enter
+                    <button className={"button-submit"} onClick={test} id = "enterCode">Enter
                         code
                     </button>
 
@@ -35,14 +36,33 @@ class App extends Component {
 
         function test() {
             var create = document.getElementById("createButton");
-            // create.classList.remove("button-submit");
-            create.innerText = "";
+            var enterCode = document.getElementById("enterCode")
+            var codeTextBox = document.createElement('input');
+            codeTextBox.classList.add("inputText");
+            codeTextBox.placeholder = "Code:";
+            codeTextBox.id = "codeTextBox";
+            codeTextBox.background = "black";
             create.classList.add("change");
+            create.value = "";
+
+            // create.classList.remove("button-submit");
+            // create.value = "";
+            // create.type = "input"
+            // create.value = "";
+            //
+            //
+            // create = document.getElementById("codeTextBox");
+            // create.classList.add("change");
             //TODO: Make into text box with button
             //add delay to changing classes
             setTimeout(function () {
+                create.value = "Code:";
+                enterCode.innerText = "Submit";
                 create.classList.add("change2");
-            }, (2 * 1000));
+            }, (0.5 * 1000));
+            setTimeout(function () {
+                create.parentNode.replaceChild(codeTextBox, create);
+            }, (1 * 1000));
 
         }
     }
