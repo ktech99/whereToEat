@@ -161,6 +161,10 @@
 
 }
 
+.cancelButton{
+  visibility : hidden;
+}
+
 /*Fade in animations*/
 @keyframes fadein {
   from { opacity: 0; }

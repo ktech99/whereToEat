@@ -23,10 +23,11 @@ class App extends Component {
                     </p>
                     <form>
                     <input id="createButton" className={"button-submit"} type="submit" value="Create a Form"/>
-
+                    <br/>
+                        <img src={require("./img/cancel.png")} height={50} className={"cancelButton"} id = "cancelButton"/>
                     </form>
                     <br/>
-                    <button className={"button-submit"} onClick={test} id = "enterCode">Enter
+                    <button className={"button-submit"} onClick={enterCode} id = "enterCode">Enter
                         code
                     </button>
 
@@ -34,26 +35,18 @@ class App extends Component {
             </div>
         );
 
-        function test() {
+        function enterCode() {
             var create = document.getElementById("createButton");
             var enterCode = document.getElementById("enterCode")
             var codeTextBox = document.createElement('input');
+            var cancel = document.getElementById("cancelButton");
+            cancel.style.visibility = "visible";
             codeTextBox.classList.add("inputText");
             codeTextBox.placeholder = "Code:";
             codeTextBox.id = "codeTextBox";
             codeTextBox.background = "black";
             create.classList.add("change");
             create.value = "";
-
-            // create.classList.remove("button-submit");
-            // create.value = "";
-            // create.type = "input"
-            // create.value = "";
-            //
-            //
-            // create = document.getElementById("codeTextBox");
-            // create.classList.add("change");
-            //TODO: Make into text box with button
             //add delay to changing classes
             setTimeout(function () {
                 create.value = "Code:";
