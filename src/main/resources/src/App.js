@@ -22,13 +22,15 @@ class App extends Component {
                         from your friend, go ahead and enter that!
                     </p>
                     <form>
-                    <input id="createButton" className={"button-submit"} type="submit" value="Create a Form"/>
-                    <br/>
-                        <img src={require("./img/cancel.png")} height={50} className={"cancelButton"} id = "cancelButton"/>
+                        <input id="createButton" className={"button-submit"}
+                               type="submit" value="Create a Form"/>
+                        <br/>
+                        <img src={require("./img/cancel.png")} height={50}
+                             className={"cancelButton"} id="cancelButton" onClick={returnCode}/>
                     </form>
                     <br/>
-                    <button className={"button-submit"} onClick={enterCode} id = "enterCode">Enter
-                        code
+                    <button className={"button-submit"} onClick={enterCode}
+                            id="enterCode">Enter code
                     </button>
 
                 </div>
@@ -55,6 +57,39 @@ class App extends Component {
             }, (0.5 * 1000));
             setTimeout(function () {
                 create.parentNode.replaceChild(codeTextBox, create);
+            }, (1 * 1000));
+
+        }
+
+        function returnCode() {
+        //TODO return code for clicking cross
+            //code text box to replace
+            var inputBox = document.getElementById("codeTextBox");
+            //second button
+            var enterCode = document.getElementById("enterCode")
+            //create form button
+            var createButton = document.createElement('input');
+            //cancel button
+            var cancel = document.getElementById("cancelButton");
+            //change cancel button to hidden
+            cancel.style.visibility = "hidden";
+            //add button class to createButton
+            createButton.classList.add("button-return");
+            //Add text to createButton
+            createButton.value = "Create a Form";
+            //Add id to createButton
+            createButton.id = "createButton";
+            //Making size of textbox small
+            // inputBox.classList.remove("inputText");
+            inputBox.parentNode.replaceChild( createButton, inputBox);
+            createButton.classList.add("change");
+
+            setTimeout(function () {
+                createButton.classList.add("change2");
+                // inputBox
+            }, (0.5 * 1000));
+            setTimeout(function () {
+
             }, (1 * 1000));
 
         }
