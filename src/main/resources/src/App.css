@@ -1,3 +1,5 @@
+@import "https://fonts.googleapis.com/css?family=Charm" ;
+
 .App {
   text-align: center;
 }
@@ -35,6 +37,7 @@
 }
 .navbar .seal {
   border-top: 30px solid #00075c;
+  border-top: 30px solid #00075c;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
   height: 0;
@@ -44,12 +47,13 @@
   left: 50%;
   bottom: -20px;
   margin-left: -110px;
-  top: 30px;
+  top: 15px;
 }
 
 .logo{
   text-align: center;
   font-size: 50px;
+  font-family: 'Charm', cursive;
 }
 
 /*Navbar end*/
@@ -182,9 +186,10 @@
 /*end test for button change*/
 
 .summaryPara{
-  font-size: 20px;
+  font-size: 30px;
   color: black;
   font-weight: bold;
+  font-family: 'Charm', cursive;
   -webkit-animation: fadein 4s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 4s; /* Firefox < 16 */
   -ms-animation: fadein 4s; /* Internet Explorer */
@@ -216,6 +221,7 @@
 
 .cancelButton{
   visibility : hidden;
+  margin-top: 5px;
 }
 
 /*Fade in animations*/

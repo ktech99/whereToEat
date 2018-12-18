@@ -10,11 +10,12 @@ class App extends Component {
                     <div className='seal'/>
                 </div>
                 <div className={"buttons"}>
-                    <h1>Welcome to where to eat!</h1>
+                    {/*<h1>Welcome to where to eat!</h1>*/}
                     <p className={"summaryPara"}>
                         <br/>
                         Our aim is to simplify the decision for you and your
                         friends as to where to eat.
+                        <br/>
                         <br/>
                         To get started, create a form for your friends, or
                         if you have recieved a code
@@ -28,7 +29,6 @@ class App extends Component {
                         <img src={require("./img/cancel.png")} height={50}
                              className={"cancelButton"} id="cancelButton" onClick={returnCode}/>
                     </form>
-                    <br/>
                     <button className={"button-submit"} onClick={enterCode}
                             id="enterCode">Enter code
                     </button>
@@ -58,7 +58,6 @@ class App extends Component {
             setTimeout(function () {
                 create.parentNode.replaceChild(codeTextBox, create);
             }, (1 * 1000));
-
         }
 
         function returnCode() {
@@ -79,14 +78,13 @@ class App extends Component {
             createButton.value = "Create a Form";
             //Add id to createButton
             createButton.id = "createButton";
-            //Making size of textbox small
-            // inputBox.classList.remove("inputText");
+            createButton.type = "submit";
             inputBox.parentNode.replaceChild( createButton, inputBox);
             createButton.classList.add("change");
 
             setTimeout(function () {
                 createButton.classList.add("change2");
-                // inputBox
+                enterCode.innerText = "Enter code";
             }, (0.5 * 1000));
             setTimeout(function () {
 
