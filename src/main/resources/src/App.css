@@ -63,7 +63,7 @@
   outline: none;
   height: 70px;
   text-align: center;
-  width: 240px;
+  width: 300px;
   border-radius: 40px;
   background: black;
   border: 2px solid #1ECD97;
@@ -120,7 +120,7 @@
   outline: none;
   height: 70px;
   text-align: center;
-  width: 240px;
+  width: 300px;
   border-radius: 40px;
   background: black;
   border: 2px solid #1ECD97;
@@ -180,7 +180,7 @@
   transition: width 0.5s ease-out;
 }
 .change2 {
-  width : 240px;
+  width : 300px;
   transition: width 0.5s ease-out;
 }
 /*end test for button change*/

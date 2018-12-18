@@ -17,14 +17,14 @@ class App extends Component {
                         friends as to where to eat.
                         <br/>
                         <br/>
-                        To get started, create a form for your friends, or
+                        To get started, Generate a link for your friends, or
                         if you have recieved a code
                         <br/>
                         from your friend, go ahead and enter that!
                     </p>
                     <form>
                         <input id="createButton" className={"button-submit"}
-                               type="submit" value="Create a Form"/>
+                               type="submit" value="Generate Code"/>
                         <br/>
                         <img src={require("./img/cancel.png")} height={50}
                              className={"cancelButton"} id="cancelButton" onClick={returnCode}/>
@@ -75,7 +75,7 @@ class App extends Component {
             //add button class to createButton
             createButton.classList.add("button-return");
             //Add text to createButton
-            createButton.value = "Create a Form";
+            createButton.value = "Generate Code";
             //Add id to createButton
             createButton.id = "createButton";
             createButton.type = "submit";
