@@ -24,10 +24,12 @@ class App extends Component {
                     </p>
                     <form>
                         <input id="createButton" className={"button-submit"}
-                               type="submit" value="Generate Code"/>
+                               type="button" value="Generate Code"
+                               onClick={getLocation}/>
                         <br/>
                         <img src={require("./img/cancel.png")} height={50}
-                             className={"cancelButton"} id="cancelButton" onClick={returnCode}/>
+                             className={"cancelButton"} id="cancelButton"
+                             onClick={returnCode}/>
                     </form>
                     <button className={"button-submit"} onClick={enterCode}
                             id="enterCode">Enter code
@@ -61,7 +63,7 @@ class App extends Component {
         }
 
         function returnCode() {
-        //TODO return code for clicking cross
+            //TODO return code for clicking cross
             //code text box to replace
             var inputBox = document.getElementById("codeTextBox");
             //second button
@@ -78,8 +80,8 @@ class App extends Component {
             createButton.value = "Generate Code";
             //Add id to createButton
             createButton.id = "createButton";
-            createButton.type = "submit";
-            inputBox.parentNode.replaceChild( createButton, inputBox);
+            createButton.type = "button";
+            inputBox.parentNode.replaceChild(createButton, inputBox);
             createButton.classList.add("change");
 
             setTimeout(function () {
@@ -90,6 +92,19 @@ class App extends Component {
 
             }, (1 * 1000));
 
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert( "Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            console.log( "Latitude: " + position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude);
         }
     }
 }
