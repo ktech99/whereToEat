@@ -100,4 +100,10 @@ public class Restaurant<E> {
     public int hashCode() {
         return Objects.hash(getName(), getLatitude(), getLongitude());
     }
+
+    public void checkRep(){
+        assert (this.getName() != null):"Name of restaurant is null";
+        assert (this.getLatitude() != null):"Latitude of restaurant is null";
+        assert (this.getLongitude() != null):"Longitude of restaurant is null";
+    }
 }
