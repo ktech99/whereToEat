@@ -5,9 +5,8 @@ import java.util.Objects;
 /**
  * Class Restaurant is a mutable class that stores information
  * about a particular restaurant.
- * @param <E> type for latitude and longitude
  */
-public class Restaurant<E> {
+public class Restaurant extends Location{
 
     /**
      * AF:
@@ -18,16 +17,10 @@ public class Restaurant<E> {
     /**
      * Rep invariant:
      * name != null
-     * latitude != null
-     * longitude != null
      */
 
     /**Name of restaurant*/
     private String name;
-    /**Latitude of Restaurant of a given type*/
-    private E latitude;
-    /**Longitude of a restaurant of a given type*/
-    private E longitude;
 
     /**
      * Returns name of restaurant
@@ -46,53 +39,6 @@ public class Restaurant<E> {
     }
 
     /**
-     * latitude of restaurant
-     * @return latitude of restaurant
-     */
-    public E getLatitude() {
-        return latitude;
-    }
-
-    /**
-     * set latitude of restaurant
-     * @param latitude of restaurant to be set
-     */
-    public void setLatitude(E latitude) {
-        this.latitude = latitude;
-    }
-
-    /**
-     * longitude of restaurant
-     * @return longitude of restaurant
-     */
-    public E getLongitude() {
-        return longitude;
-    }
-
-    /**
-     * longitude of restaurant to be set
-     * @param longitude of restaurant to be set
-     */
-    public void setLongitude(E longitude) {
-        this.longitude = longitude;
-    }
-
-    /**
-     * Checks for equality of 2 restaurants
-     * @param o object to be compared to this for equality
-     * @return true iff 2 restaurants have same name, lat, and long
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Restaurant<?> that = (Restaurant<?>) o;
-        return Objects.equals(getName(), that.getName()) &&
-                Objects.equals(getLatitude(), that.getLatitude()) &&
-                Objects.equals(getLongitude(), that.getLongitude());
-    }
-
-    /**
      * compute hashcode of restaurant
      * @return hashcode of restaurant
      */
@@ -102,8 +48,7 @@ public class Restaurant<E> {
     }
 
     public void checkRep(){
+        super.checkRep();
         assert (this.getName() != null):"Name of restaurant is null";
-        assert (this.getLatitude() != null):"Latitude of restaurant is null";
-        assert (this.getLongitude() != null):"Longitude of restaurant is null";
     }
 }
