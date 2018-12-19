@@ -88,10 +88,6 @@ class App extends Component {
                 createButton.classList.add("change2");
                 enterCode.innerText = "Enter code";
             }, (0.5 * 1000));
-            setTimeout(function () {
-
-            }, (1 * 1000));
-
         }
 
         function getLocation() {
@@ -103,8 +99,10 @@ class App extends Component {
         }
 
         function showPosition(position) {
+            // Todo Send post request instead
             console.log( "Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude);
+            // Todo get hashcode as return type
         }
     }
 }
