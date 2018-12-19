@@ -8,6 +8,17 @@ import java.util.Objects;
  */
 public class Location {
 
+    /**
+     * Rep invariant:
+     * latitude <= 90 and >= -90
+     * longitude <= 180 and >= -180
+     */
+
+    /**
+     * AF:
+     * Location can be thought of as coordinates of a point on a map
+     */
+
     /**Latitude of a location*/
     private double latitude;
     /**Longitude of a location*/
@@ -49,6 +60,11 @@ public class Location {
         this.longitude = longitude;
     }
 
+    /**
+     * Checks equality of this object with another object
+     * @param o object to check for equality with this
+     * @return true iff latitude and longitude of both objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,12 +74,20 @@ public class Location {
                 Double.compare(location.getLongitude(), getLongitude()) == 0;
     }
 
+    /**
+     * Computes hashcode of this object
+     * @return hashcode of this object
+     */
     @Override
     public int hashCode() {
         return Objects.hash(getLatitude(), getLongitude());
     }
 
+    /**
+     * Checking for violation of representative invariant
+     */
     public void checkRep(){
-        // Todo finish rep invarient and AFs
+        assert (getLatitude() <= 90 && getLatitude() >= -90): "Latitude range is incorrect, should be between -90 and 90";
+        assert (getLongitude() <= 180 && getLatitude() >= -180): "Longitude range is incorrect, should be between -180 and 180";
     }
 }
