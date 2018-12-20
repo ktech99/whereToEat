@@ -6,7 +6,7 @@ import java.util.Objects;
  * Class Restaurant is a mutable class that stores information
  * about a particular restaurant.
  */
-public class Restaurant extends Location{
+public class Restaurant extends Location {
 
     /**
      * AF:
@@ -19,16 +19,19 @@ public class Restaurant extends Location{
      * name != null
      */
 
-    /**Name of restaurant*/
+    /**
+     * Name of restaurant
+     */
     private String name;
 
     /**
      * Constructor to create a new restaurant
-     * @param name name of restaurant
-     * @param latitude latitude of restaurant
+     *
+     * @param name      name of restaurant
+     * @param latitude  latitude of restaurant
      * @param longitude longitude of restaurant
      */
-    public Restaurant(String name, double latitude, double longitude){
+    public Restaurant(String name, double latitude, double longitude) {
         super(latitude, longitude);
         this.name = name;
         checkRep();
@@ -36,6 +39,7 @@ public class Restaurant extends Location{
 
     /**
      * Returns name of restaurant
+     *
      * @return name of restaurant
      */
     public String getName() {
@@ -45,6 +49,7 @@ public class Restaurant extends Location{
 
     /**
      * Sets name of restaurant
+     *
      * @param name of restaurant to be set
      */
     public void setName(String name) {
@@ -54,6 +59,7 @@ public class Restaurant extends Location{
 
     /**
      * compute hashcode of restaurant
+     *
      * @return hashcode of restaurant
      */
     @Override
@@ -65,8 +71,8 @@ public class Restaurant extends Location{
     /**
      * Checks for violation of rep invariant
      */
-    public void checkRep(){
+    public void checkRep() {
         super.checkRep();
-        assert (this.getName() != null):"Name of restaurant is null";
+        assert (this.getName() != null) : "Name of restaurant is null";
     }
 }
