@@ -24,6 +24,11 @@ public class Location {
     /**Longitude of a location*/
     private double longitude;
 
+    /**
+     * Constructor to create a new location
+     * @param latitude latitude of new location
+     * @param longitude longitude of new location
+     */
     public Location(double latitude, double longitude){
         this.latitude = latitude;
         this.longitude = longitude;

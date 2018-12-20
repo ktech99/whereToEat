@@ -22,6 +22,12 @@ public class Restaurant extends Location{
     /**Name of restaurant*/
     private String name;
 
+    /**
+     * Constructor to create a new restaurant
+     * @param name name of restaurant
+     * @param latitude latitude of restaurant
+     * @param longitude longitude of restaurant
+     */
     public Restaurant(String name, double latitude, double longitude){
         super(latitude, longitude);
         this.name = name;
