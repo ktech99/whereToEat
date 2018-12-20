@@ -82,7 +82,8 @@ public class Location {
 
     /**
      * Gets distance between 2 locations in miles
-     *
+     * Psuedo code taken from:
+     * https://stackoverflow.com/questions/6366408/
      * @param l location to find distance from
      * @return the distance between 2 locations in miles
      */
@@ -133,8 +134,8 @@ public class Location {
      * Checking for violation of representative invariant
      */
     public void checkRep() {
-        assert (getLatitude() <= 90 && getLatitude() >= -90) : "Latitude range is incorrect, should be between -90 and 90";
-        assert (getLongitude() <= 180 && getLatitude() >= -180) : "Longitude range is incorrect, should be between -180 and 180";
+        assert (this.latitude <= 90 && this.latitude >= -90) : "Latitude range is incorrect, should be between -90 and 90";
+        assert (this.longitude <= 180 && this.longitude >= -180) : "Longitude range is incorrect, should be between -180 and 180";
     }
 
 }
