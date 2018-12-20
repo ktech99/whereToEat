@@ -22,11 +22,18 @@ public class Restaurant extends Location{
     /**Name of restaurant*/
     private String name;
 
+    public Restaurant(String name, double latitude, double longitude){
+        super(latitude, longitude);
+        this.name = name;
+        checkRep();
+    }
+
     /**
      * Returns name of restaurant
      * @return name of restaurant
      */
     public String getName() {
+        checkRep();
         return name;
     }
 
@@ -36,6 +43,7 @@ public class Restaurant extends Location{
      */
     public void setName(String name) {
         this.name = name;
+        checkRep();
     }
 
     /**
@@ -44,9 +52,13 @@ public class Restaurant extends Location{
      */
     @Override
     public int hashCode() {
+        checkRep();
         return Objects.hash(getName(), getLatitude(), getLongitude());
     }
 
+    /**
+     * Checks for violation of rep invariant
+     */
     public void checkRep(){
         super.checkRep();
         assert (this.getName() != null):"Name of restaurant is null";

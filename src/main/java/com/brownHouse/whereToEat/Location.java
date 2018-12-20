@@ -24,12 +24,19 @@ public class Location {
     /**Longitude of a location*/
     private double longitude;
 
+    public Location(double latitude, double longitude){
+        this.latitude = latitude;
+        this.longitude = longitude;
+        checkRep();
+    }
+
     /**
      * returns latitude of location
      *
      * @return latitude of location
      */
     public double getLatitude() {
+        checkRep();
         return latitude;
     }
 
@@ -40,6 +47,7 @@ public class Location {
      */
     public void setLatitude(double latitude) {
         this.latitude = latitude;
+        checkRep();
     }
 
     /**
@@ -48,6 +56,7 @@ public class Location {
      * @return longitude of location
      */
     public double getLongitude() {
+        checkRep();
         return longitude;
     }
 
@@ -58,37 +67,7 @@ public class Location {
      */
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    /**
-     * Checks equality of this object with another object
-     * @param o object to check for equality with this
-     * @return true iff latitude and longitude of both objects are equal
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Location location = (Location) o;
-        return Double.compare(location.getLatitude(), getLatitude()) == 0 &&
-                Double.compare(location.getLongitude(), getLongitude()) == 0;
-    }
-
-    /**
-     * Computes hashcode of this object
-     * @return hashcode of this object
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(getLatitude(), getLongitude());
-    }
-
-    /**
-     * Checking for violation of representative invariant
-     */
-    public void checkRep(){
-        assert (getLatitude() <= 90 && getLatitude() >= -90): "Latitude range is incorrect, should be between -90 and 90";
-        assert (getLongitude() <= 180 && getLatitude() >= -180): "Longitude range is incorrect, should be between -180 and 180";
+        checkRep();
     }
 
     /**
@@ -102,4 +81,38 @@ public class Location {
         double yDist = this.getLongitude() - l.getLongitude();
         return Math.sqrt(xDist*xDist + yDist*yDist);
     }
+
+    /**
+     * Checks equality of this object with another object
+     * @param o object to check for equality with this
+     * @return true iff latitude and longitude of both objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        checkRep();
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Location location = (Location) o;
+        return Double.compare(location.getLatitude(), getLatitude()) == 0 &&
+                Double.compare(location.getLongitude(), getLongitude()) == 0;
+    }
+
+    /**
+     * Computes hashcode of this object
+     * @return hashcode of this object
+     */
+    @Override
+    public int hashCode() {
+        checkRep();
+        return Objects.hash(getLatitude(), getLongitude());
+    }
+
+    /**
+     * Checking for violation of representative invariant
+     */
+    public void checkRep(){
+        assert (getLatitude() <= 90 && getLatitude() >= -90): "Latitude range is incorrect, should be between -90 and 90";
+        assert (getLongitude() <= 180 && getLatitude() >= -180): "Longitude range is incorrect, should be between -180 and 180";
+    }
+
 }
