@@ -90,4 +90,16 @@ public class Location {
         assert (getLatitude() <= 90 && getLatitude() >= -90): "Latitude range is incorrect, should be between -90 and 90";
         assert (getLongitude() <= 180 && getLatitude() >= -180): "Longitude range is incorrect, should be between -180 and 180";
     }
+
+    /**
+     * Gets distance between 2 locations by using the distance formula
+     * ie: sqrt((x2-x1)^2 + (y2-y1)^2)
+     * @param l location to find distance from
+     * @return the distance between 2 locations
+     */
+    public double getDistance(Location l){
+        double xDist = this.getLatitude() - l.getLatitude();
+        double yDist = this.getLongitude() - l.getLongitude();
+        return Math.sqrt(xDist*xDist + yDist*yDist);
+    }
 }
