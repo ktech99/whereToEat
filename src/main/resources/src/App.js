@@ -1,42 +1,93 @@
 import React, {Component} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
+import './swipe.css'
 
 class App extends Component {
     render() {
         return (
-            <div className={"blackBack"}>
-                <div className='navbar'>
+            <BrowserRouter>
+                <div>
+                <Route exact={true} path='/' render={() => (
+                    <div className={"blackBack"}>
+                    <div className='navbar'>
                     <div className='logo'>Where to Eat ?</div>
                     <div className='seal'/>
-                </div>
-                <div className={"buttons"}>
+                    </div>
+                    <div className={"buttons"}>
                     {/*<h1>Welcome to where to eat!</h1>*/}
                     <p className={"summaryPara"}>
-                        <br/>
-                        Our aim is to simplify the decision for you and your
-                        friends as to where to eat.
-                        <br/>
-                        <br/>
-                        To get started, Generate a link for your friends, or
-                        if you have recieved a code
-                        <br/>
-                        from your friend, go ahead and enter that!
+                    <br/>
+                    Our aim is to simplify the decision for you and your
+                    friends as to where to eat.
+                    <br/>
+                    <br/>
+                    To get started, Generate a link for your friends, or
+                    if you have recieved a code
+                    <br/>
+                    from your friend, go ahead and enter that!
                     </p>
                     <form>
-                        <input id="createButton" className={"button-submit"}
-                               type="button" value="Generate Code"
-                               onClick={getLocation}/>
-                        <br/>
-                        <img src={require("./img/cancel.png")} height={50}
-                             className={"cancelButton"} id="cancelButton"
-                             onClick={returnCode}/>
+                    <input id="createButton" className={"button-submit"}
+                    type="button" value="Generate Code"
+                    onClick={getLocation}/>
+                    <br/>
+                    <img src={require("./img/cancel.png")} height={50}
+                    className={"cancelButton"} id="cancelButton"
+                    onClick={returnCode}/>
                     </form>
                     <button className={"button-submit"} onClick={enterCode}
-                            id="enterCode">Enter code
+                    id="enterCode">Enter code
                     </button>
 
+                    </div>
+                    </div>
+
+                    )}/>
+
+                <Route exact={true} path='/swipe' render={() => (
+                    <div className="tinder">
+                        <div className="tinder--status">
+                            <i className="fa fa-remove"></i>
+                            <i className="fa fa-heart"></i>
+                        </div>
+
+                        <div className="tinder--cards">
+                            <div className="tinder--card">
+                                <img src="https://placeimg.com/600/300/people"/>
+                                <h3>Demo card 1</h3>
+                                <p>This is a demo for Tinder like swipe cards</p>
+                            </div>
+                            <div className="tinder--card">
+                                <img src="https://placeimg.com/600/300/animals"/>
+                                <h3>Demo card 2</h3>
+                                <p>This is a demo for Tinder like swipe cards</p>
+                            </div>
+                            <div className="tinder--card">
+                                <img src="https://placeimg.com/600/300/nature"/>
+                                <h3>Demo card 3</h3>
+                                <p>This is a demo for Tinder like swipe cards</p>
+                            </div>
+                            <div className="tinder--card">
+                                <img src="https://placeimg.com/600/300/tech"/>
+                                <h3>Demo card 4</h3>
+                                <p>This is a demo for Tinder like swipe cards</p>
+                            </div>
+                            <div className="tinder--card">
+                                <img src="https://placeimg.com/600/300/arch"/>
+                                <h3>Demo card 5</h3>
+                                <p>This is a demo for Tinder like swipe cards</p>
+                            </div>
+                        </div>
+
+                        <div className="tinder--buttons">
+                            <button id="nope"><i className="fa fa-remove"></i></button>
+                            <button id="love"><i className="fa fa-heart"></i></button>
+                        </div>
+                    </div>
+                )}/>
                 </div>
-            </div>
+            </BrowserRouter>
         );
 
         function enterCode() {
@@ -105,6 +156,7 @@ class App extends Component {
             // Todo get hashcode as return type
         }
     }
+
 }
 
 export default App;
