@@ -1,7 +1,6 @@
 package com.brownHouse.whereToEat;
 
 
-import com.sun.tools.javac.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +13,8 @@ import java.util.Set;
  * Immutable class which is not an ADT
  * A restaurant map is used as access point to the API of the program
  */
-@RestController
 @CrossOrigin("http://localhost:3000")
+@RestController
 public class restaurantMap {
 
     /**
