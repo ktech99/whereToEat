@@ -79,7 +79,8 @@ class App extends Component {
                                             Yes!
                                         </button>
                                         <button
-                                            className="profile-card__button button--orange">Hell Nah!
+                                            className="profile-card__button button--orange">Hell
+                                            Nah!
                                         </button>
                                     </div>
                                 </div>
@@ -90,7 +91,7 @@ class App extends Component {
                                         <div
                                             className="profile-card-form__container">
                                             <textarea
-                                                placeholder="Say something..."></textarea>
+                                                placeholder="Say something..."/>
                                         </div>
 
                                         <div
@@ -177,9 +178,21 @@ class App extends Component {
         }
 
         function showPosition(position) {
+            fetch('http://localhost:8080/getCode?latitude=' + position.coords.latitude + '&longitude=' + position.coords.longitude, {
+                method: 'get'
+
+            }).then(res => {
+                if (!res.ok) {
+                    throw res;
+                }
+                return res;
+            }).then(response => response.json())
+                .then(response => {
+                    console.log(response);
+                })
             // Todo Send post request instead
-            console.log("Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude);
+            // console.log("Latitude: " + position.coords.latitude +
+            //     "<br>Longitude: " + position.coords.longitude);
             // Todo get hashcode as return type
         }
 
