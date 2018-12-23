@@ -8,84 +8,111 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                <Route exact={true} path='/' render={() => (
-                    <div className={"blackBack"}>
-                    <div className='navbar'>
-                    <div className='logo'>Where to Eat ?</div>
-                    <div className='seal'/>
-                    </div>
-                    <div className={"buttons"}>
-                    {/*<h1>Welcome to where to eat!</h1>*/}
-                    <p className={"summaryPara"}>
-                    <br/>
-                    Our aim is to simplify the decision for you and your
-                    friends as to where to eat.
-                    <br/>
-                    <br/>
-                    To get started, Generate a link for your friends, or
-                    if you have recieved a code
-                    <br/>
-                    from your friend, go ahead and enter that!
-                    </p>
-                    <form>
-                    <input id="createButton" className={"button-submit"}
-                    type="button" value="Generate Code"
-                    onClick={getLocation}/>
-                    <br/>
-                    <img src={require("./img/cancel.png")} height={50}
-                    className={"cancelButton"} id="cancelButton"
-                    onClick={returnCode}/>
-                    </form>
-                    <button className={"button-submit"} onClick={enterCode}
-                    id="enterCode">Enter code
-                    </button>
+                    <Route exact={true} path='/' render={() => (
+                        <div className={"blackBack"}>
+                            <div className='navbar'>
+                                <div className='logo'>Where to Eat ?</div>
+                                <div className='seal'/>
+                            </div>
+                            <div className={"buttons"}>
+                                {/*<h1>Welcome to where to eat!</h1>*/}
+                                <p className={"summaryPara"}>
+                                    <br/>
+                                    Our aim is to simplify the decision for you
+                                    and your
+                                    friends as to where to eat.
+                                    <br/>
+                                    <br/>
+                                    To get started, Generate a link for your
+                                    friends, or
+                                    if you have recieved a code
+                                    <br/>
+                                    from your friend, go ahead and enter that!
+                                </p>
+                                <form>
+                                    <input id="createButton"
+                                           className={"button-submit"}
+                                           type="button" value="Generate Code"
+                                           onClick={getLocation}/>
+                                    <br/>
+                                    <img src={require("./img/cancel.png")}
+                                         height={50}
+                                         className={"cancelButton"}
+                                         id="cancelButton"
+                                         onClick={returnCode}/>
+                                </form>
+                                <button className={"button-submit"}
+                                        onClick={enterCode}
+                                        id="enterCode">Enter code
+                                </button>
 
-                    </div>
-                    </div>
+                            </div>
+                        </div>
 
                     )}/>
 
-                <Route exact={true} path='/swipe' render={() => (
-                    <div className="tinder">
-                        <div className="tinder--status">
-                            <i className="fa fa-remove"></i>
-                            <i className="fa fa-heart"></i>
+                    <Route exact={true} path='/swipe' render={() => (
+                        <div className="wrapper">
+                            <div className="profile-card js-profile-card">
+                                <div className="profile-card__img">
+                                    <img
+                                        src="https://www.savt.ca/scripts/templates/iDea/images/blog-1.jpg"
+                                        alt="profile card"/>
+                                </div>
+
+                                <div
+                                    className="profile-card__cnt js-profile-cnt">
+                                    <div className="profile-card__name">
+                                        Name of place...
+                                    </div>
+                                    <div className="profile-card__txt">
+                                        Place description
+                                    </div>
+                                    <div className="profile-card-loc">
+                                        <span className="profile-card-loc__txt">
+                                        Istanbul, Turkey
+                                         </span>
+                                    </div>
+                                    <div className="profile-card-ctr">
+                                        <button
+                                            className="profile-card__button button--blue js-message-btn">
+                                            Yes!
+                                        </button>
+                                        <button
+                                            className="profile-card__button button--orange">Hell Nah!
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div
+                                    className="profile-card-message js-message">
+                                    <form className="profile-card-form">
+                                        <div
+                                            className="profile-card-form__container">
+                                            <textarea
+                                                placeholder="Say something..."></textarea>
+                                        </div>
+
+                                        <div
+                                            className="profile-card-form__bottom">
+                                            <button
+                                                className="profile-card__button button--blue js-message-close">
+                                                Send
+                                            </button>
+
+                                            <button
+                                                className="profile-card__button button--gray js-message-close">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+
                         </div>
 
-                        <div className="tinder--cards">
-                            <div className="tinder--card">
-                                <img src="https://placeimg.com/600/300/people"/>
-                                <h3>Demo card 1</h3>
-                                <p>This is a demo for Tinder like swipe cards</p>
-                            </div>
-                            <div className="tinder--card">
-                                <img src="https://placeimg.com/600/300/animals"/>
-                                <h3>Demo card 2</h3>
-                                <p>This is a demo for Tinder like swipe cards</p>
-                            </div>
-                            <div className="tinder--card">
-                                <img src="https://placeimg.com/600/300/nature"/>
-                                <h3>Demo card 3</h3>
-                                <p>This is a demo for Tinder like swipe cards</p>
-                            </div>
-                            <div className="tinder--card">
-                                <img src="https://placeimg.com/600/300/tech"/>
-                                <h3>Demo card 4</h3>
-                                <p>This is a demo for Tinder like swipe cards</p>
-                            </div>
-                            <div className="tinder--card">
-                                <img src="https://placeimg.com/600/300/arch"/>
-                                <h3>Demo card 5</h3>
-                                <p>This is a demo for Tinder like swipe cards</p>
-                            </div>
-                        </div>
-
-                        <div className="tinder--buttons">
-                            <button id="nope"><i className="fa fa-remove"></i></button>
-                            <button id="love"><i className="fa fa-heart"></i></button>
-                        </div>
-                    </div>
-                )}/>
+                    )}/>
                 </div>
             </BrowserRouter>
         );
@@ -145,16 +172,17 @@ class App extends Component {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
-                alert( "Geolocation is not supported by this browser.");
+                alert("Geolocation is not supported by this browser.");
             }
         }
 
         function showPosition(position) {
             // Todo Send post request instead
-            console.log( "Latitude: " + position.coords.latitude +
+            console.log("Latitude: " + position.coords.latitude +
                 "<br>Longitude: " + position.coords.longitude);
             // Todo get hashcode as return type
         }
+
     }
 
 }
