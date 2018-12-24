@@ -215,8 +215,10 @@ class App extends Component {
 
             setTimeout(function () {
                 copyButton.classList.add("change2");
-                copyButton.innerHTML = hashValue;
             }, (0.5 * 1000));
+            setTimeout(function () {
+                copyButton.innerHTML = hashValue;
+            }, (0.8 * 1000));
         }
         
         function copyFunction() {
