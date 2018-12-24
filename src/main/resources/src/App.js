@@ -4,6 +4,15 @@ import './App.css';
 import './swipe.css'
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hashValue: "hash"
+        };
+    }
+
+
+
     render() {
         return (
             <BrowserRouter>
@@ -33,7 +42,7 @@ class App extends Component {
                                     <input id="createButton"
                                            className={"button-submit"}
                                            type="button" value="Generate Code"
-                                           onClick={getLocation}/>
+                                           onClick={getLocation.bind(this)}/>
                                     <br/>
                                     <img src={require("./img/cancel.png")}
                                          height={50}
@@ -126,9 +135,12 @@ class App extends Component {
                             </div>
                             <div className={"buttons"}>
                                 <form>
-                                    <label className={"label-name"}>Enter you Name:</label>
-                                    <input className={"input-name"} type = "text" placeholder={"Name:"}/>
-                                    <input className={"button-submit"} type = "button" value = "Submit"/>
+                                    <label className={"label-name"}>Enter you
+                                        Name:</label>
+                                    <input className={"input-name"} type="text"
+                                           placeholder={"Name:"}/>
+                                    <input className={"button-submit"}
+                                           type="button" value="Submit"/>
                                 </form>
                             </div>
                         </div>
@@ -179,7 +191,7 @@ class App extends Component {
             //Add id to createButton
             createButton.id = "createButton";
             createButton.type = "button";
-            createButton.onclick = getLocation;
+            createButton.onclick = getLocation.bind(this);
             inputBox.parentNode.replaceChild(createButton, inputBox);
             createButton.classList.add("change");
 
@@ -192,7 +204,12 @@ class App extends Component {
 
         function getLocation() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition(showPosition.bind(this));
+                var createButton = document.createElement('button');
+                createButton.onclick = showHash.bind(this);
+                setTimeout(function () {
+                    createButton.click();
+                }, (0.5 * 1000));
             } else {
                 alert("Geolocation is not supported by this browser.");
             }
@@ -209,12 +226,12 @@ class App extends Component {
                 return res;
             }).then(response => response.json())
                 .then(response => {
-                    console.log(response);
-                    showHash(response);
+                    this.setState({hashValue: response});
+                    // showHash(response);
                 })
         }
 
-        function showHash(hashValue) {
+        function showHash() {
             //code text box to replace
             var enterCode = document.getElementById("enterCode")
             //create form button
@@ -231,11 +248,12 @@ class App extends Component {
             enterCode.parentNode.replaceChild(copyButton, enterCode);
             //Add animations
             copyButton.classList.add("change");
+            var hashVal =  "" + this.state.hashValue;
             setTimeout(function () {
                 copyButton.classList.add("change2");
             }, (0.5 * 1000));
             setTimeout(function () {
-                copyButton.innerHTML = hashValue;
+                copyButton.innerHTML = hashVal;
             }, (0.8 * 1000));
             document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
