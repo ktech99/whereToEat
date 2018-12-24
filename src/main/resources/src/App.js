@@ -41,7 +41,9 @@ class App extends Component {
                                          id="cancelButton"
                                          onClick={returnCode}/>
                                 </form>
-                                <p className={"copyPara"} id = "copyCodeText">Click the code to Copy, and give it to all your friends:</p>
+                                <p className={"copyPara"}
+                                   id="copyCodeText">Click the code to Copy, and
+                                    give it to all your friends:</p>
                                 <button className={"button-submit"}
                                         onClick={enterCode}
                                         id="enterCode">Enter code
@@ -114,6 +116,22 @@ class App extends Component {
 
                         </div>
 
+                    )}/>
+
+                    <Route exact={true} path='/name' render={() => (
+                        <div>
+                            <div className='navbar'>
+                                <div className='logo'>Where to Eat ?</div>
+                                <div className='seal'/>
+                            </div>
+                            <div className={"buttons"}>
+                                <form>
+                                    <label className={"label-name"}>Enter you Name:</label>
+                                    <input className={"input-name"} type = "text" placeholder={"Name:"}/>
+                                    <input className={"button-submit"} type = "button" value = "Submit"/>
+                                </form>
+                            </div>
+                        </div>
                     )}/>
                 </div>
             </BrowserRouter>
@@ -219,7 +237,7 @@ class App extends Component {
             setTimeout(function () {
                 copyButton.innerHTML = hashValue;
             }, (0.8 * 1000));
-            document.getElementById("copyCodeText").style.visibility= "visible";
+            document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
             //Todo take to choose restaurant page on click
         }
