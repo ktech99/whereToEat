@@ -160,12 +160,14 @@ class App extends Component {
             //Add id to createButton
             createButton.id = "createButton";
             createButton.type = "button";
+            createButton.onclick = getLocation;
             inputBox.parentNode.replaceChild(createButton, inputBox);
             createButton.classList.add("change");
 
             setTimeout(function () {
                 createButton.classList.add("change2");
                 enterCode.innerText = "Enter code";
+                enterCode.id = "enterCode"
             }, (0.5 * 1000));
         }
 
@@ -189,11 +191,43 @@ class App extends Component {
             }).then(response => response.json())
                 .then(response => {
                     console.log(response);
+                    showHash(response);
                 })
-            // Todo Send post request instead
             // console.log("Latitude: " + position.coords.latitude +
             //     "<br>Longitude: " + position.coords.longitude);
-            // Todo get hashcode as return type
+        }
+
+        function showHash(hashValue){
+            //code text box to replace
+            var enterCode = document.getElementById("enterCode")
+            //create form button
+            var copyButton = document.createElement('button');
+            //add button class to createButton
+            copyButton.classList.add("button-return");
+            //Add text to createButton
+            copyButton.innerHTML = "";
+            //Add id to createButton
+            copyButton.id = "copyButton";
+            copyButton.type = "text";
+            copyButton.onclick = copyFunction;
+            enterCode.parentNode.replaceChild(copyButton, enterCode);
+            copyButton.classList.add("change");
+
+            setTimeout(function () {
+                copyButton.classList.add("change2");
+                copyButton.innerHTML = hashValue;
+            }, (0.5 * 1000));
+        }
+        
+        function copyFunction() {
+            console.log("reached");
+            var toChange = document.getElementById("copyButton");
+            var textarea = document.createElement("textarea");
+            textarea.value = toChange.innerHTML;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
         }
 
     }
