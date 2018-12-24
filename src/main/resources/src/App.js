@@ -41,6 +41,7 @@ class App extends Component {
                                          id="cancelButton"
                                          onClick={returnCode}/>
                                 </form>
+                                <p className={"copyPara"} id = "copyCodeText">Click the code to Copy, and give it to all your friends:</p>
                                 <button className={"button-submit"}
                                         onClick={enterCode}
                                         id="enterCode">Enter code
@@ -193,11 +194,9 @@ class App extends Component {
                     console.log(response);
                     showHash(response);
                 })
-            // console.log("Latitude: " + position.coords.latitude +
-            //     "<br>Longitude: " + position.coords.longitude);
         }
 
-        function showHash(hashValue){
+        function showHash(hashValue) {
             //code text box to replace
             var enterCode = document.getElementById("enterCode")
             //create form button
@@ -208,19 +207,23 @@ class App extends Component {
             copyButton.innerHTML = "";
             //Add id to createButton
             copyButton.id = "copyButton";
-            copyButton.type = "text";
+            //To copy Text on clicking
             copyButton.onclick = copyFunction;
+            //Replace child
             enterCode.parentNode.replaceChild(copyButton, enterCode);
+            //Add animations
             copyButton.classList.add("change");
-
             setTimeout(function () {
                 copyButton.classList.add("change2");
             }, (0.5 * 1000));
             setTimeout(function () {
                 copyButton.innerHTML = hashValue;
             }, (0.8 * 1000));
+            document.getElementById("copyCodeText").style.visibility= "visible";
+            document.getElementById("createButton").value = "Restaurant picker";
+            //Todo take to choose restaurant page on click
         }
-        
+
         function copyFunction() {
             console.log("reached");
             var toChange = document.getElementById("copyButton");
@@ -233,7 +236,6 @@ class App extends Component {
         }
 
     }
-
 }
 
 export default App;

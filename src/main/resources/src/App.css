@@ -75,7 +75,7 @@
   transition: all 0.25s ease;
   margin-left: 25px;
   margin-right: 25px;
-  margin-top: 50px;
+  margin-top: 40px;
   variant :outlined;
   -webkit-animation: fadein 10s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 10s; /* Firefox < 16 */
@@ -133,7 +133,7 @@
   transition: all 0.25s ease;
   margin-left: 25px;
   margin-right: 25px;
-  margin-top: 50px;
+  margin-top: 40px;
   variant :outlined;
 
 }
@@ -223,6 +223,13 @@
 .cancelButton{
   visibility : hidden;
   margin-top: 5px;
+}
+
+.copyPara{
+  visibility : hidden;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 /*Fade in animations*/
