@@ -7,8 +7,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hashValue: "hash",
-            name: ""
+            // hashValue: "hash",
+            // name: ""
         };
     }
 
@@ -64,6 +64,7 @@ class App extends Component {
 
                     )}/>
 
+                     {/*Todo Page to redirect to with name and hashvalue*/}
                     {/*Swipe page to choose restaurants*/}
                     <Route exact={true} path='/swipe' render={() => (
                         <div className="wrapper">
@@ -123,6 +124,7 @@ class App extends Component {
                         </div>
                     )}/>
 
+                    {/*Todo Page to redirect to with hashvalue*/}
                     {/*Enter name page*/}
                     <Route exact={true} path='/name' render={() => (
                         <div>
@@ -168,6 +170,9 @@ class App extends Component {
             setTimeout(function () {
                 create.parentNode.replaceChild(codeTextBox, create);
             }, (1 * 1000));
+            // makes button redirect to name page on click
+            enterCode.onclick = redirectToName;
+
         }
 
         function returnCode() {
@@ -255,7 +260,13 @@ class App extends Component {
             }, (0.8 * 1000));
             document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
-            //Todo take to choose restaurant page on click
+            // Redirect to name page
+            document.getElementById("createButton").onclick = redirectToName;
+        }
+
+        function redirectToName() {
+            // Todo sid redirect: send hashvalue as param
+            window.location.href = "http://localhost:3000/name";
         }
 
         function copyFunction() {
@@ -273,7 +284,9 @@ class App extends Component {
             var name = document.getElementById("nameBox").value;
             this.setState({name: name});
             if (this.state.name !== "")
+                // Todo sid redirect: send name and hashvalue as param
                 window.location.href = "http://localhost:3000/swipe";
+                //console.log(this.state.hashValue);
             else
                 alert("Please enter a name")
         }
