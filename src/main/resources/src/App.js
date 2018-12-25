@@ -7,16 +7,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            hashValue: "hash"
+            hashValue: "hash",
+            name: ""
         };
     }
-
 
 
     render() {
         return (
             <BrowserRouter>
                 <div>
+                    {/*Landing Page*/}
                     <Route exact={true} path='/' render={() => (
                         <div className={"blackBack"}>
                             <div className='navbar'>
@@ -63,6 +64,7 @@ class App extends Component {
 
                     )}/>
 
+                    {/*Swipe page to choose restaurants*/}
                     <Route exact={true} path='/swipe' render={() => (
                         <div className="wrapper">
                             <div className="profile-card js-profile-card">
@@ -71,7 +73,6 @@ class App extends Component {
                                         src="https://www.savt.ca/scripts/templates/iDea/images/blog-1.jpg"
                                         alt="profile card"/>
                                 </div>
-
                                 <div
                                     className="profile-card__cnt js-profile-cnt">
                                     <div className="profile-card__name">
@@ -96,7 +97,6 @@ class App extends Component {
                                         </button>
                                     </div>
                                 </div>
-
                                 <div
                                     className="profile-card-message js-message">
                                     <form className="profile-card-form">
@@ -112,7 +112,6 @@ class App extends Component {
                                                 className="profile-card__button button--blue js-message-close">
                                                 Send
                                             </button>
-
                                             <button
                                                 className="profile-card__button button--gray js-message-close">
                                                 Cancel
@@ -120,13 +119,11 @@ class App extends Component {
                                         </div>
                                     </form>
                                 </div>
-
                             </div>
-
                         </div>
-
                     )}/>
 
+                    {/*Enter name page*/}
                     <Route exact={true} path='/name' render={() => (
                         <div>
                             <div className='navbar'>
@@ -138,9 +135,10 @@ class App extends Component {
                                     <label className={"label-name"}>Enter you
                                         Name:</label>
                                     <input className={"input-name"} type="text"
-                                           placeholder={"Name:"}/>
+                                           placeholder={"Name:"} id="nameBox"/>
                                     <input className={"button-submit"}
-                                           type="button" value="Submit"/>
+                                           type="button" value="Submit"
+                                           onClick={storeName.bind(this)}/>
                                 </form>
                             </div>
                         </div>
@@ -248,7 +246,7 @@ class App extends Component {
             enterCode.parentNode.replaceChild(copyButton, enterCode);
             //Add animations
             copyButton.classList.add("change");
-            var hashVal =  "" + this.state.hashValue;
+            var hashVal = "" + this.state.hashValue;
             setTimeout(function () {
                 copyButton.classList.add("change2");
             }, (0.5 * 1000));
@@ -269,6 +267,15 @@ class App extends Component {
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
+        }
+
+        function storeName() {
+            var name = document.getElementById("nameBox").value;
+            this.setState({name: name});
+            if (this.state.name !== "")
+                window.location.href = "http://localhost:3000/swipe";
+            else
+                alert("Please enter a name")
         }
 
     }
