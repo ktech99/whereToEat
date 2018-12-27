@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from "react-router-dom";
 
 class Landing extends Component {
 
@@ -168,12 +169,16 @@ class Landing extends Component {
             document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
             // Redirect to name page
-            document.getElementById("createButton").onclick = redirectToName;
+            document.getElementById("createButton").onclick = redirectToName.bind(this);
         }
 
         function redirectToName() {
             // Todo sid redirect: send hashvalue as param
-            window.location.href = "http://localhost:3000/name";
+            // window.location.href = "http://localhost:3000/name";
+            return (<Redirect push to={{
+                pathname : '/name',
+                search: '?hash='+this.state.hashValue
+            }}/>)
         }
 
         function copyFunction() {
