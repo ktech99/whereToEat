@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Landing from './landing';
 import Name from './name';
 import Swipe from './swipe'
-import Switch from "react-router-dom/es/Switch";
 
 
 class App extends Component {
@@ -19,8 +18,8 @@ class App extends Component {
 
     render() {
         return (
-            <Switch>
-                <div>
+            <BrowserRouter>
+                <Switch>
                     {/*Landing Page*/}
                     <Route exact={true} path='/' component={Landing}/>
 
@@ -31,8 +30,8 @@ class App extends Component {
                     {/*Todo Page to redirect to with hashvalue*/}
                     {/*Enter name page*/}
                     <Route exact={true} path='/name' component={Name}/>
-                </div>
-            </Switch>
+                </Switch>
+            </BrowserRouter>
         );
 
     }

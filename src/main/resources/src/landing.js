@@ -77,9 +77,9 @@ class Landing extends Component {
             }, (0.5 * 1000));
             setTimeout(function () {
                 create.parentNode.replaceChild(codeTextBox, create);
-            }, (1 * 1000));
+            }, (1000));
             // makes button redirect to name page on click
-            enterCode.onclick = redirectToName;
+            document.getElementById("enterCode").onclick = redirectToName;
 
         }
 
@@ -169,7 +169,7 @@ class Landing extends Component {
             document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
             // Redirect to name page
-            document.getElementById("createButton").onclick = redirectToName.bind(this);
+            document.getElementById("createButton").onclick = redirectToName;
         }
 
         function redirectToName() {
@@ -177,7 +177,7 @@ class Landing extends Component {
             // window.location.href = "http://localhost:3000/name";
             return (<Redirect push to={{
                 pathname : '/name',
-                search: '?hash='+this.state.hashValue
+                search: '?hash=123'
             }}/>)
         }
 
