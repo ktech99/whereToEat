@@ -170,16 +170,24 @@ class Landing extends Component {
             document.getElementById("copyCodeText").style.visibility = "visible";
             document.getElementById("createButton").value = "Restaurant picker";
             // Redirect to name page
-            document.getElementById("createButton").onclick = redirectToName;
+            document.getElementById("createButton").onclick = redirectToName.bind(this);
         }
 
         function redirectToName() {
             // Todo sid redirect: send hashvalue as param
-            window.location.href = "http://localhost:3000/name?hash="+this.state.hashValue;
-            return (<Redirect push to={{
-                pathname : '/name',
-                search: '?hash=123'
-            }}/>)
+            try {
+                var hash = document.getElementById("codeTextBox").value;
+            }catch (e) {
+                hash = this.state.hashValue;
+            }
+            this.setState ({
+                hashValue: hash
+            });
+            if(hash.length === 0){
+                alert("please enter a hash value");
+            }else {
+                window.location.href = "http://localhost:3000/name?hash=" + hash;
+            }
         }
 
         function copyFunction() {
