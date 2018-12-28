@@ -26,10 +26,12 @@ class Name extends Component {
         function storeName() {
             var name = document.getElementById("nameBox").value;
             this.setState({name: name});
-            if (name !== "")
-            // Todo sid redirect: send name and hashvalue as param
-            //     window.location.href = "http://localhost:3000/swipe";
-            console.log(window.location.search.substr(1));
+            if (name !== "") {
+                // Todo sid redirect: send name and hashvalue as param
+                //
+                var hash = window.location.search.substr(1);
+                window.location.href = "http://localhost:3000/swipe?name=" + name + "&" + hash;
+            }
             else
                 alert("Please enter a name")
         }
