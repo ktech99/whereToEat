@@ -49,7 +49,7 @@ class Landing extends Component {
                        id="copyCodeText">Click the code to Copy, and
                         give it to all your friends:</p>
                     <button className={"button-submit"}
-                            onClick={enterCode}
+                            onClick={enterCode.bind(this)}
                             id="enterCode">Enter code
                     </button>
 
@@ -79,7 +79,8 @@ class Landing extends Component {
                 create.parentNode.replaceChild(codeTextBox, create);
             }, (1000));
             // makes button redirect to name page on click
-            document.getElementById("enterCode").onclick = redirectToName;
+            document.getElementById("enterCode").onclick = redirectToName.bind(this);
+
 
         }
 
@@ -174,7 +175,7 @@ class Landing extends Component {
 
         function redirectToName() {
             // Todo sid redirect: send hashvalue as param
-            // window.location.href = "http://localhost:3000/name";
+            window.location.href = "http://localhost:3000/name?hash="+this.state.hashValue;
             return (<Redirect push to={{
                 pathname : '/name',
                 search: '?hash=123'

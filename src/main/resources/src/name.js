@@ -26,10 +26,10 @@ class Name extends Component {
         function storeName() {
             var name = document.getElementById("nameBox").value;
             this.setState({name: name});
-            if (this.state.name !== "")
+            if (name !== "")
             // Todo sid redirect: send name and hashvalue as param
-                window.location.href = "http://localhost:3000/swipe";
-            //console.log(this.state.hashValue);
+            //     window.location.href = "http://localhost:3000/swipe";
+            console.log(window.location.search.substr(1));
             else
                 alert("Please enter a name")
         }
