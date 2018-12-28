@@ -43,7 +43,7 @@ class Landing extends Component {
                              height={50}
                              className={"cancelButton"}
                              id="cancelButton"
-                             onClick={returnCode}/>
+                             onClick={returnCode.bind(this)}/>
                     </form>
                     <p className={"copyPara"}
                        id="copyCodeText">Click the code to Copy, and
