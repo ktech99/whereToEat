@@ -59,6 +59,7 @@ class Landing extends Component {
 
         function enterCode() {
             var create = document.getElementById("createButton");
+            console.log(create.value);
             var enterCode = document.getElementById("enterCode")
             var codeTextBox = document.createElement('input');
             var cancel = document.getElementById("cancelButton");
@@ -76,7 +77,11 @@ class Landing extends Component {
                 create.classList.add("change2");
             }, (0.5 * 1000));
             setTimeout(function () {
-                create.parentNode.replaceChild(codeTextBox, create);
+                try {
+                    create.parentNode.replaceChild(codeTextBox, create);
+                }catch (e) {
+                    console.log("preventing child not found error");
+                }
             }, (1000));
             // makes button redirect to name page on click
             document.getElementById("enterCode").onclick = redirectToName.bind(this);
@@ -89,7 +94,7 @@ class Landing extends Component {
             //code text box to replace
             var inputBox = document.getElementById("codeTextBox");
             //second button
-            var enterCode = document.getElementById("enterCode")
+            var enterCodeElement = document.getElementById("enterCode")
             //create form button
             var createButton = document.createElement('input');
             //cancel button
@@ -106,12 +111,12 @@ class Landing extends Component {
             createButton.onclick = getLocation.bind(this);
             inputBox.parentNode.replaceChild(createButton, inputBox);
             createButton.classList.add("change");
-
             setTimeout(function () {
                 createButton.classList.add("change2");
-                enterCode.innerText = "Enter code";
-                enterCode.id = "enterCode"
+                enterCodeElement.innerText = "Enter code";
+                enterCodeElement.id = "enterCode";
             }, (0.5 * 1000));
+            enterCodeElement.onclick = enterCode.bind(this);
         }
 
         function getLocation() {
